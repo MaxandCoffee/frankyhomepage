@@ -1,0 +1,16 @@
+#editor {
+    display: none;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+#editor textarea{
+    width: 90%;
+    min-height: 100px;
+}

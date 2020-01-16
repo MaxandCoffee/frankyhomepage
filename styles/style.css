@@ -1,3 +1,6 @@
+
+@import 'carousel.css';
+@import 'editor.css';
 .main {
     color: firebrick;
 }
@@ -5,3 +8,4 @@
 .important {
     text-decoration: underline;
 }
+

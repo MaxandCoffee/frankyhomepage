@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Franky Homepage</title>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body id='home' class="home">
-    </body>
-    <script src="hompagescript.js"></script>
+<head>
+    <title>Franky Homepage</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <div id='home' class="home"></div>
+    <div id='edit' class="home"></div>
+    <div id='editor' role="dialog">
+        <button type="button" class='js-closeEditor'>X</button>
+        <h1>Edit Text</h1>
+        <form onsubmit="return false;">
+            <textarea required></textarea>
+
+            <div class="buttons">
+                <button type="submit" id="editorSave">save</button>
+                <button type="button" class='js-closeEditor'>cancel</button>
+            </div>
+        </form>
+    </div>
+    <footer></footer>
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/source.js"></script>
+</body>
 </html>
