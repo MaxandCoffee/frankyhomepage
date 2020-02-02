@@ -1,12 +1,10 @@
-//export function init() {
-//(function(){
-    var interval
-    
-    interval = setInterval(function () {
-      if (document.querySelector('button[data-carousel-autoplay]').getAttribute('aria-pressed') === 'true') {
-        return document.querySelector("button[data-carousel-direction='next']").click();
-      }
-    }, 4000);
+var interval;
+
+interval = setInterval(function () {
+  if (document.querySelector('button[data-carousel-autoplay]').getAttribute('aria-pressed') === 'true') {
+    return document.querySelector("button[data-carousel-direction='next']").click();
+  }
+}, 6000);
 
 export function addEventListeners() {
 
@@ -56,7 +54,7 @@ export function addEventListeners() {
            panalChange(null, current_panel());
            
           var alerts = document.getElementById('alerts');
-              alerts.innerHTML = '<div role="alert">Showing panel' + upcoming_index + 1 + 'of ' + max_index + 1 + '</div>';
+              alerts.innerHTML = '<div role="alert">Showing slide' + upcoming_index + 1 + 'of ' + max_index + 1 + '</div>';
 
           return setTimeout(function () {
             return  document.getElementById('alerts').innerHTML = '';
@@ -82,7 +80,7 @@ export function addEventListeners() {
         }
           
           current_radiobutton_name = current_radiobutton.getAttribute('name');
-          current_panel_id = current_radiobutton.getAttribute('value') + '_panel';
+          current_panel_id = current_radiobutton.getAttribute('value') + '_slide';
           slidePanel = function() {
               var elements = document.querySelectorAll('[name="' + current_radiobutton_name +'"]');
               
@@ -90,13 +88,16 @@ export function addEventListeners() {
                 var panel, radiobutton, panel_id;
 
                 radiobutton = elements[i];
-                panel_id = radiobutton.getAttribute('id') + '_panel';
+                panel_id = radiobutton.getAttribute('id') + '_slide';
                 panel = document.getElementById(panel_id);
                 if (panel_id === current_panel_id) {
-                   panel.style.display = 'block';
+                   panel.style.opacity= '1';
+                   panel.removeAttribute('aria-hidden');
                 } else {
-                    panel.style.display = 'none';
+                   panel.style.opacity = '0'; 
+                   panel.setAttribute('aria-hidden', true);
                 }
+                    
               };
           }
 
@@ -104,7 +105,6 @@ export function addEventListeners() {
  
     }
 
-    
     document.querySelector('button[data-carousel-autoplay]').addEventListener('click', function (e) {
       var button, status;
         
@@ -115,4 +115,3 @@ export function addEventListeners() {
       return button.setAttribute('aria-pressed', status);
     })
 }
-

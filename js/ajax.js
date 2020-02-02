@@ -1,4 +1,4 @@
-function getJSON(url, callback) {
+function getContents(url, callback) {
   let xhr = new XMLHttpRequest();
   xhr.onload = function () { 
     callback(this.responseText) 
@@ -7,16 +7,24 @@ function getJSON(url, callback) {
   xhr.send();
 }
 
+export function getUsefulJSON(url, callback) {
+  getContents(url, data => callback(JSON.parse(data)));
+}
+
 export function getUsefulContents(url, callback) {
-  getJSON(url, data => callback(JSON.parse(data)));
+  getContents(url, data => callback(data));
 }
 
 export function getAuthUrl() {  
-    return 'http://127.0.0.1:60723/testdata/test-auth.html'; 
+    return 'http://127.0.0.1:54315/testdata/test-auth.html'; 
 }
 
 export function getBlobUrl() {  
-    return 'http://127.0.0.1:60723/testdata/test-json.html'; 
+    return 'http://127.0.0.1:54315/testdata/test-json.html'; 
+}
+
+export function getLatestBlog() {  
+    return 'http://127.0.0.1:54315/testdata/latest-blog.html'; 
 }
 
 

@@ -1,16 +1,44 @@
 #editor {
     display: none;
     width: 90%;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
     border: 1px solid black;
     padding: 12px;
+    z-index: 9;
 }
 
-#editor textarea{
+#editor textarea {
     width: 90%;
-    min-height: 100px;
+    min-height: 50px;
+}
+
+#editor input[type="text"],
+#editor input[type="url"]{
+     width: 90%;
+}
+
+#editor form{
+    display: none;
+}
+
+#editor form.show{
+    display: block;
+}
+
+#editor .fieldset_text label {
+    display: block;
+    padding: 1em 0 0;
+}
+
+#editor fieldset {
+    margin: 1em 0;
+}
+
+#editor [type=radio] {
+    padding: 0;
+    margin: 0 1em 0 0;
 }

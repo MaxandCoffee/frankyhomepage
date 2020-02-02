@@ -3,15 +3,20 @@
 <head>
     <title>Franky Homepage</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/library/css-library.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/layout.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Vampiro+One|Work+Sans:400,500,700,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id='home' class="home"></div>
-    <div id='edit' class="home"></div>
+    <div id='edit' class="edit"></div>
     <div id='editor' role="dialog">
         <button type="button" class='js-closeEditor'>X</button>
-        <h1>Edit Text</h1>
-        <form onsubmit="return false;">
+        
+        <form onsubmit="return false;" id="editText">
+            <h1>Edit Text</h1>
             <textarea required></textarea>
 
             <div class="buttons">
@@ -19,9 +24,65 @@
                 <button type="button" class='js-closeEditor'>cancel</button>
             </div>
         </form>
+        <form onsubmit="return false;" id="editInsta">
+            <h1>Edit Instagram Link</h1>
+            <fieldset class="fieldset_text">
+                <label for="instaText">Edit Text</label>
+                <textarea id="instaText" required></textarea>
+                <label for="instaLink">Edit Instagram Link</label>
+                <input id="instaLink" type="url" required />
+            </fieldset>
+
+            <div class="buttons">
+                <button type="submit" id="editorSave">save</button>
+                <button type="button" class='js-closeEditor'>cancel</button>
+            </div>
+        </form>
+        <form onsubmit="return false;" id="editSlide">
+            <h1>Edit Slide</h1>
+            <fieldset class="fieldset_text">
+                <label for="heading">Heading</label>
+                <textarea id="heading" required></textarea>
+                <label for="paragraph">Sub Heading</label>
+                <textarea id="paragraph" required></textarea>
+                <label for="buttontext">Button Text</label>
+                <input type="text" id="buttontext" required />
+                <label for="buttonlink">Button Link</label>
+                <input type="url" id="buttonlink" required />
+            </fieldset>
+            
+            <fieldset>
+                <legend>Text Location</legend>
+                <label for="location_top">Top</label>
+                <input type="radio" name="text_location" id="top" value="top" required />
+                <label for="location_middle">Middle</label>
+                <input type="radio" name="text_location" id="middle" value="middle" required />
+                <label for="location_bottom">Bottom</label>
+                <input type="radio" name="text_location" id="bottom" value="bottom" required />
+                <label for="location_center">Center</label>
+                <input type="radio" name="text_location" id="center" value="center" required />
+            </fieldset>
+            
+            <fieldset>
+                <legend>Text Theme</legend>
+                <label for="theme_dark">Dark</label>
+                <input type="radio" name="text_theme" id="dark" value="dark" required />
+                <label for="theme_dark">Light</label>
+                <input type="radio" name="text_theme" id="light" value="light" required />
+            </fieldset>
+
+            <div class="buttons">
+                <button type="submit" id="editorSave">save</button>
+                <button type="button" class='js-closeEditor'>cancel</button>
+            </div>
+        </form>
     </div>
-    <footer></footer>
-    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <footer>
+        <p>franky's website</p>
+        <p>copywrite 2020</p>
+    </footer>
+    
     <script src="js/source.js"></script>
 </body>
+
 </html>

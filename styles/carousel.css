@@ -1,3 +1,4 @@
+
 .visually-hidden {
   position: absolute;
   left: -10000px;
@@ -7,26 +8,20 @@
   overflow: hidden;
 }
 
-body {
-  padding: 20px;
-}
-
-fieldset {
+.carousel fieldset {
   border: 0;
   padding: 4px;
-}
-
-.carousel:focus-within .control label {
-  background-color: yellow;
 }
 
 .carousel {
   padding-bottom: 50px;
   margin-bottom: 20px;
   position: relative;
+  display: grid;
+  grid-template-areas: 'myArea';
 }
 
-.controls {
+.carousel .controls {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -35,50 +30,84 @@ fieldset {
   padding: 8px 0 10px 0;
 }
 
-.control {
-  display: inline-block;
-}
-.control label,
-.control button {
-  height: 25px;
-  border: 1px solid black;
-  background-color: lightgray;
-  vertical-align: middle;
-}
-.control label {
-  width: 25px;
-  margin: 0 5px;
-  display: inline-block;
+.carousel .control {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin: 0 7px;
+    transform: translateX(-20px);
 }
 
-input[type="radio"]:checked + label {
-  background-color: black !important;
+.control:nth-of-type(3),
+.control:nth-of-type(4),
+.control:nth-of-type(5) {
+    display: none;
 }
 
-button:focus,
-a:focus,
-input:focus,
-input[type="radio"]:focus + label,
-*[tabindex="0"]:focus{
-  outline: 2px dotted red;
-  outline-offset: 2px;
+.carousel .control button {
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    vertical-align: middle;
+    border: none;
+    z-index: 1;
 }
 
-input[type="radio"] + label:hover {
-  cursor: pointer;
+.carousel .control label {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--color-dark-blue);
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.panel {
-  border: 1px solid;
-  background-color: lightyellow;
-  padding: 0 0 0 10px;
-  display: none;
+.carousel input[type="radio"]:checked + label {
+    background-color: var(--color-dark-blue) !important;
 }
 
-#carousel_panel_1_panel{
-  display: block;
+.carousel input[type="radio"] + label:hover {
+    cursor: pointer;
 }
 
-button[aria-pressed="true"] {
-  font-weight: bold;
+.carousel .slide {
+    max-height: calc(90vh - 50px);
+    overflow: hidden;
+    grid-area: myArea;
+    transition: opacity 0.8s linear;
+    opacity: 0;
+}
+
+.carousel .slide#carousel_slide_1_slide {
+    opacity: 1;
+}
+
+button.button_next::before{
+    content: "";
+    background-image: url('../images/icons/navigate_next-24px.svg');
+}
+
+.carousel .control button::before {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button.button_previous::before{
+    content: "";
+    background-image: url('../images/icons/navigate_before-24px.svg');
+}
+
+button.button_stop_play::before{
+    content: "";
+    background-image: url('../images/icons/play_circle_outline-24px.svg');
+}
+
+button.button_stop_play[aria-pressed="true"]::before {
+    content: "";
+    background-image: url('../images/icons/pause_circle_outline-24px.svg');
 }

@@ -1,5 +1,5 @@
 export function randomId() {
-     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+     return 'a' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
 export function trapFocus(container, AE) {
