@@ -415,7 +415,7 @@ export function createCarouselComponent(slides) {
    
     carousel.classList.add('carousel');
     
-    if (slides.length > 1) {
+    if (Object.keys(slides).length > 1) {
         carousel.innerHTML = innercontrols;
     }
    

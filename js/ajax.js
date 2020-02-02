@@ -16,15 +16,15 @@ export function getUsefulContents(url, callback) {
 }
 
 export function getAuthUrl() {  
-    return 'http://127.0.0.1:54315/testdata/test-auth.html'; 
+    return 'http://127.0.0.1:49702/testdata/test-auth.html'; 
 }
 
 export function getBlobUrl() {  
-    return 'http://127.0.0.1:54315/testdata/test-json.html'; 
+    return 'http://127.0.0.1:49702/testdata/test-json.html'; 
 }
 
 export function getLatestBlog() {  
-    return 'http://127.0.0.1:54315/testdata/latest-blog.html'; 
+    return 'http://127.0.0.1:49702/testdata/latest-blog.html'; 
 }
 
 
